@@ -1,5 +1,5 @@
 # An-AI-Chatbot-PrayerTimes-in-Python-and-Flask
-AI Chatbot AI Prayer Times with Python and Flask REST API
+AI Chatbot Prayer Times with Python and Flask REST API
 
 To get started follow the steps below:
 
