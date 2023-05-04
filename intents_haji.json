@@ -1,0 +1,100 @@
+{"intents": [
+        {"tag": "sapaan",
+         "patterns": ["Halo",  "??", "hai", "oi","mau tanya","siang","sore","pagi","malam","cuk","Hi"],
+         "responses": ["Halo! Selamat Datang, Ada yang bisa dibantu seputar haji?", "Halo! Ada yang bisa dibantu seputar haji?"],
+         "context_set": ""
+        },
+		{"tag": "salam",
+         "patterns": ["Assalamu'alaikum",  "Assalamualaikum","salam" ],
+         "responses": ["Waalaikumsalam kak, Ada yang bisa dibantu seputar haji?"],
+         "context_set": ""
+        },
+		
+        {"tag": "penutup",
+         "patterns": [ "ok", "yaudah", "yawes", "oh, ok"],
+         "responses": ["Terimakasih telah menghubungi kami!", "Semoga jawaban kami dapat membantu"],
+         "context_set": ""
+        },
+        {"tag": "jam",
+         "patterns": ["buka jam berapa?", "Jam konsultasi?","layanan kapan?", "jam layanan?", "waktu layanan?", "waktu kunjung?"],
+         "responses": ["Silahkan berkunjung untuk melakukan pendaftaran haji,konsultasi dan eazy passport pada jam layanan 08.00-15.00 Senin-Jum'at"],
+         "context_set": ""
+        },
+        {"tag": "alamat",
+         "patterns": ["lokasi?", "lokasi dimana?", "alamat kantor?", "dimana?", "shareloc"],
+         "responses": ["Lokasi kami berada di Jl semangka No 17"],
+         "context_set": ""
+        },
+        {"tag": "layanan",
+         "patterns": ["layanan di plhut apa saja?", "jumlah layanan?", "berapa layanan?", "nama-nama layanan?"],
+         "responses": ["Di PLHUT Temanggung melayani :pendaftaran haji, konsultasi haji dan umroh, pembatalan haji,eazy passpord"],
+         "context_set": ""
+        },
+        {"tag": "jurusan",
+         "patterns": ["Jurusan apa saja?", "jumlah jurusan?", "berapa jurusan?", "info jurusan"],
+         "responses": ["Untuk mengetahui lebih lanjut, silahkan kunjungi jurusan.net"],
+         "context_set": ""
+        },
+		{"tag": "daftarhaji",
+         "patterns": ["daftar haji",  "mau daftar haji"],
+         "responses": ["Mohon maaf sebelumnya, apakah anda sudah tahu persyaratan untuk daftar haji ?"],
+         "context_set": "",
+		  "filter": "orderid",
+		  "set": "historydetails"
+        },
+		{"tag": "batalhaji",
+         "patterns": ["batal haji",  "mau batal haji","pembatalan haji"],
+         "responses": ["Mohon maaf sebelumnya, apakah anda sudah tahu persyaratan untuk pembatalan haji ?"],
+         "context_set": ""
+        },
+		{"tag": "syaratdaftarhaji",
+         "patterns": ["syarat daftar haji",  "persyaratan daftar haji apa saja ?"],
+         "responses": ["Silahkan datang ke PLHUT Temanggung atau hub. call center di 081330496884"],
+         "context_set": ""
+        },
+		{"tag": "porsihaji",
+         "patterns": ["keberangkatan haji", "porsi haji","nomor porsi"],
+         "responses": ["Silahkan tulis nomor porsi haji anda..","Mohon kami diinformasikan nomor porsi haji anda berapa ?"],
+          "set": "tanyaporsi"
+        },
+		{"tag": "nomorporsi",
+         "patterns": ["nomorporsi"],
+         "responses": ["mohon ditunggu..."],
+          "filter": "tanyaporsi",
+		  "act":"cekPorsi"
+        },
+		{"tag": "ceknodaftarnikah",
+         "patterns": ["mohon info status nomor pendaftaran nikah", "nomor pendaftaran nikah","cek pendaftaran nikah"],
+         "responses": ["Silahkan tulis nomor pendaftaran nikah anda.."],
+		 "set": "tanyanodaftarnikah"
+        },
+		{"tag": "nomordaftarnikah",
+         "patterns": ["nomordaftarnikah"],
+         "responses": ["mohon ditunggu..."],
+          "filter": "tanyanodaftarnikah",
+		  "act":"cekdaftarnikah"
+        },
+		{"tag": "jadwalsholat",
+         "patterns": ["jadwal sholat", "waktu sholat"],
+         "responses": ["Silahkan ketik nama kotanya .."],
+          "set": "kotajadwalsholat"
+        },
+		{"tag": "jawabjadwalsholat",
+         "patterns": ["jawabjadwalsholat"],
+         "responses": ["mohon ditunggu..."],
+          "filter": "kotajadwalsholat",
+		  "act":"getjadwalsholat"
+        },
+		{"tag": "masjidterdekat",
+         "patterns": ["masjid terdekat", "masjid sekitar"],
+         "responses": ["Silahkan sharing lokasi anda saat ini, kami akan bantu mencari masjid terdekat dengan lokasi anda...","Mohon kirim lokasi anda saat ini..."],
+          "set": "xymasjid"
+        },
+		{"tag": "kirimkoordinatmasjid",
+			"patterns": ["kirimkoordinatmasjid"],
+			"responses": ["mohon ditunggu..."],
+			"filter": "xymasjid",
+			"act":"getmasjidterdekat"
+        }
+   ]
+}
